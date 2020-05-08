@@ -32,9 +32,9 @@ func _process(_delta):
 func add_target():
 	var target = targetscene.instance()
 	rand.randomize()
-	var x = rand.randf_range(0, screen_size.x)
+	var x = rand.randf_range(0, screen_size.x-20)
 	rand.randomize()
-	var y = rand.randf_range(0, screen_size.y)
+	var y = rand.randf_range(0, screen_size.y-20)
 	
 	target.position.y = y
 	target.position.x = x
