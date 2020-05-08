@@ -5,7 +5,7 @@ extends Node
 var shrink_strength = 0.11
 
 # strength of the slow down, shrink_strength is multiplied by this value
-var slowdown_strength = 0.5
+var slowdown_strength = 0.7
 
 var score : int = 0
 var lives : int = 3

@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/GameOver.gd" type="Script" id=1]
+[ext_resource path="res://Font/LiberationSans-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://GFX/icons8-reset-30.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+use_filter = true
+font_data = ExtResource( 2 )
 
 [node name="GameOver" type="Control"]
 anchor_right = 1.0
@@ -73,17 +83,19 @@ custom_constants/separation = 50
 alignment = 1
 
 [node name="FinalScoreLabel" type="Label" parent="Panel/MarginContainer/TabContainer/Overview/VBoxContainer/VBoxContainer"]
-margin_top = 79.0
+margin_top = 69.0
 margin_right = 972.0
-margin_bottom = 93.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 1 )
 text = "Final Score:"
 align = 1
 valign = 1
 
 [node name="ScoreValue" type="Label" parent="Panel/MarginContainer/TabContainer/Overview/VBoxContainer/VBoxContainer"]
-margin_top = 143.0
+margin_top = 138.0
 margin_right = 972.0
 margin_bottom = 157.0
+custom_fonts/font = SubResource( 1 )
 text = "0"
 align = 1
 valign = 1
@@ -91,21 +103,23 @@ valign = 1
 [node name="PersonalBestLabel" type="Label" parent="Panel/MarginContainer/TabContainer/Overview/VBoxContainer/VBoxContainer"]
 margin_top = 207.0
 margin_right = 972.0
-margin_bottom = 221.0
+margin_bottom = 226.0
+custom_fonts/font = SubResource( 1 )
 text = "Personal Best:"
 align = 1
 
 [node name="BestValue" type="Label" parent="Panel/MarginContainer/TabContainer/Overview/VBoxContainer/VBoxContainer"]
-margin_top = 271.0
+margin_top = 276.0
 margin_right = 972.0
-margin_bottom = 285.0
+margin_bottom = 295.0
+custom_fonts/font = SubResource( 1 )
 text = "0"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/TabContainer/Overview/VBoxContainer"]
-margin_left = 356.0
+margin_left = 331.0
 margin_top = 414.0
-margin_right = 616.0
+margin_right = 641.0
 margin_bottom = 444.0
 rect_min_size = Vector2( 120, 30 )
 size_flags_horizontal = 4
@@ -117,6 +131,7 @@ alignment = 1
 margin_right = 120.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 120, 30 )
+custom_fonts/font = SubResource( 2 )
 text = "Restart"
 
 [node name="QuitButton" type="Button" parent="Panel/MarginContainer/TabContainer/Overview/VBoxContainer/HBoxContainer"]
@@ -124,6 +139,15 @@ margin_left = 140.0
 margin_right = 260.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 120, 30 )
+custom_fonts/font = SubResource( 2 )
 text = "Quit"
+
+[node name="ResetButton" type="TextureButton" parent="Panel/MarginContainer/TabContainer/Overview/VBoxContainer/HBoxContainer"]
+margin_left = 280.0
+margin_right = 310.0
+margin_bottom = 30.0
+hint_tooltip = "Reset your highscore!"
+texture_normal = ExtResource( 3 )
 [connection signal="pressed" from="Panel/MarginContainer/TabContainer/Overview/VBoxContainer/HBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/TabContainer/Overview/VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/TabContainer/Overview/VBoxContainer/HBoxContainer/ResetButton" to="." method="_on_ResetButton_pressed"]

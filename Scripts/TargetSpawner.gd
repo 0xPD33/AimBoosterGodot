@@ -49,5 +49,8 @@ func add_target():
 func _on_TargetSpawner_timeout():
 	if Global.game_over == false:
 		Global.shrink_strength += 0.0007
-		Global.slowdown_strength -= 0.005
+		if Global.slowdown_strength >= 0.2:
+			Global.slowdown_strength -= 0.005
+		else:
+			Global.slowdown_strength = 0.2
 
