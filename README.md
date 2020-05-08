@@ -3,6 +3,8 @@
 
 To run the game you just need: "AimBoosterGodot.exe" and "AimBoosterGodot.pck"
 
-It still has some issues but is in a playable state.
+known issues:
+- when hitting multiple targets at once (which should not be possible anyway),
+  accuracy calculation doesn't work properly
 
-[Picture](https://imgur.com/F3BuGkR)
+![Picture](https://i.imgur.com/F3BuGkR.png)
