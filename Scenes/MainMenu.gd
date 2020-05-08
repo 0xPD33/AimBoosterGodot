@@ -1,7 +1,5 @@
 extends Control
 
-# simple script for the main menu
-
 onready var AnimPlayer = $AnimationPlayer
 onready var FadeRect = $FadeOut
 
@@ -9,6 +7,13 @@ onready var FadeRect = $FadeOut
 func _ready():
 	FadeRect.visible = true
 	fade_out()
+	set_custom_cursor()
+
+
+# set mouse cursor to a custom cursor (will be toggleable in an options menu soon)
+func set_custom_cursor():
+	var custom_cursor = load("res://GFX/Crosshair.png")
+	Input.set_custom_mouse_cursor(custom_cursor, 0, Vector2(6, 7))
 
 
 func fade_out():

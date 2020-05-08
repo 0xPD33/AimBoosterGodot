@@ -5,6 +5,8 @@ onready var lives_label = $HUD/HBoxContainer/VBoxContainer/LivesLabel
 onready var accuracy_label = $HUD/HBoxContainer/VBoxContainer/AccLabel
 onready var time_label = $HUD/HBoxContainer/VBoxContainer/TimeLabel
 
+onready var big_time = $HUD/CenterContainer/BigTime
+
 
 # calls these every frame
 func _process(_delta):
@@ -20,6 +22,8 @@ func update_labels():
 	lives_label.text = "Lives: " + str(Global.lives)
 	accuracy_label.text = "Accuracy: " + str(Global.accuracy) + "%"
 	time_label.text = "Time: " + str(Global.game_time)
+	
+	big_time.text = str(Global.game_time)
 	
 	hide_and_show_labels()
 

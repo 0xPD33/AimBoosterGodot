@@ -90,9 +90,9 @@ alignment = 1
 
 [node name="PlayButton" type="TextureButton" parent="MainContainer/MenuContainer"]
 margin_left = 470.0
-margin_top = 79.0
+margin_top = 80.0
 margin_right = 570.0
-margin_bottom = 139.0
+margin_bottom = 140.0
 rect_min_size = Vector2( 100, 60 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -158,9 +158,9 @@ __meta__ = {
 
 [node name="QuitButton" type="TextureButton" parent="MainContainer/MenuContainer"]
 margin_left = 470.0
-margin_top = 259.0
+margin_top = 260.0
 margin_right = 570.0
-margin_bottom = 319.0
+margin_bottom = 320.0
 rect_min_size = Vector2( 100, 60 )
 size_flags_horizontal = 4
 size_flags_vertical = 4

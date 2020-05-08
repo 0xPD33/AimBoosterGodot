@@ -9,7 +9,7 @@ var targetscene = load("res://Target/Target.tscn")
 const MAX_TARGETS = 5
 
 
-# get the visible area. isn't perfect but it does the job for now.
+# get the visible area
 func get_screen_size():
 	screen_size = get_viewport().get_visible_rect().size
 
@@ -32,9 +32,9 @@ func _process(_delta):
 func add_target():
 	var target = targetscene.instance()
 	rand.randomize()
-	var x = rand.randf_range(0, screen_size.x-20)
+	var x = rand.randf_range(0 + 20, screen_size.x - 20)
 	rand.randomize()
-	var y = rand.randf_range(0, screen_size.y-20)
+	var y = rand.randf_range(0 + 20, screen_size.y)
 	
 	target.position.y = y
 	target.position.x = x
