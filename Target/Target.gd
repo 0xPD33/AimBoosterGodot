@@ -29,6 +29,7 @@ func shrink_and_grow_target(sd, shrink, delta):
 		elif sd == true:
 			scale.x += Global.shrink_grow_strength * Global.slowdown_strength * delta
 			scale.y += Global.shrink_grow_strength * Global.slowdown_strength * delta
+	
 	elif shrink == true:
 		if sd == false:
 			scale.x -= Global.shrink_grow_strength * delta
@@ -36,14 +37,13 @@ func shrink_and_grow_target(sd, shrink, delta):
 		elif sd == true:
 			scale.x -= Global.shrink_grow_strength * Global.slowdown_strength * delta
 			scale.y -= Global.shrink_grow_strength * Global.slowdown_strength * delta
-	
-	if scale.x <= 0.01 and scale.y <= 0.01:
-		despawn_target()
 
 
 func check_scale():
 	if scale.x >= 1 and scale.y >= 1:
 		shrinking = true
+	elif scale.x <= 0.01 and scale.y <= 0.01:
+		despawn_target()
 
 
 # slowdown target when the mouse has entered

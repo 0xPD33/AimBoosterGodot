@@ -13,7 +13,6 @@ func _process(_delta):
 	update_labels()
 	check_lives()
 	count_clicks()
-	calc_accuracy()
 
 
 # updates labels as the game goes on
@@ -44,9 +43,11 @@ func hide_and_show_labels():
 
 
 func count_clicks():
+	calc_accuracy()
 	if Global.game_over == false:
 		if Input.is_action_just_pressed("Click"):
 			Global.clicks += 1
+			calc_accuracy()
 
 
 # calculates the accuracy if hit_clicks and clicks are above 0

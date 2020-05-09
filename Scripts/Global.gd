@@ -1,11 +1,16 @@
 extends Node
 
+var version_number = 0.1
+
 # variable for how fast the targets start to shrink and grow. 
 # this value is applied to -/+scale.x and -/+scale.y of the targets
 var shrink_grow_strength = 0.25
 
 # strength of the slow down, shrink_strength is multiplied by this value
 var slowdown_strength = 0.7
+
+# maximum targets on screen at the same time
+var max_targets : float = 5.00
 
 var score : int = 0
 var lives : int = 3
@@ -35,6 +40,7 @@ func play_sound(sample: String):
 func reset():
 	shrink_grow_strength = 0.25
 	slowdown_strength = 0.7
+	max_targets = 5.00
 	
 	score = 0
 	lives = 3

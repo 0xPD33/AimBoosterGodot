@@ -3,11 +3,18 @@ extends Control
 onready var AnimPlayer = $AnimationPlayer
 onready var FadeRect = $FadeOut
 
+onready var VersionLabel = $Version
+
 
 func _ready():
 	FadeRect.visible = true
 	fade_out()
 	set_custom_cursor()
+	set_version_number()
+
+
+func set_version_number():
+	VersionLabel.text = "Version: " + str(Global.version_number)
 
 
 # set mouse cursor to a custom cursor (will be toggleable in an options menu soon)
@@ -32,7 +39,7 @@ func _on_QuitButton_pressed():
 	get_tree().quit()
 
 
+# frees the animation player if the main menu scene is exited
 func _on_MainMenu_tree_exiting():
 	AnimPlayer.queue_free()
-
 

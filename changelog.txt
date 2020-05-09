@@ -1,0 +1,13 @@
+pre 0.1:
+- basic gameplay
+
+0.1:
+new features/fixes:
+- accuracy is no longer being calculated every frame
+- added version number
+- the number of maximum targets is no longer a constant and changes as the game progresses
+- moved the randomization of targets positions into it's own function
+
+known issues:
+- targets can spawn on top of each other
+- if you hit multiple targets at once accuracy is being calculated wrong

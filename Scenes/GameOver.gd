@@ -64,7 +64,7 @@ func _on_RestartButton_pressed():
 
 
 # quit to main menu
-func _on_QuitButton_pressed():
+func _on_MenuButton_pressed():
 	get_tree().change_scene("res://Scenes/MainMenu.tscn")
 
 
