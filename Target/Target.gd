@@ -1,11 +1,14 @@
 extends Area2D
 
-# if true, slow down (*0.5) the shrinking speed of the target
+# if true, slow down (*0.5) the shrinking and growing speed of the target
 var slow_down : bool = false
+# if true shrink the target, if false target is growing
+var shrinking : bool = false
 
 
 func _process(delta):
-	shrink_target(slow_down, delta)
+	shrink_and_grow_target(slow_down, shrinking, delta)
+	check_scale()
 
 
 # runs when you click a target
@@ -16,22 +19,34 @@ func _on_Target_input_event(viewport: Node, event: InputEvent, shape_idx: int) -
 			Global.play_sound("res://SFX/click.wav")
 
 
-# shrink targets
-func shrink_target(sd, delta):
-	if sd == false:
-		# targets automatically despawn after having their scale reduced to 0.05
-		if scale.x and scale.y > 0.05:
-			scale.x -= Global.shrink_strength * delta
-			scale.y -= Global.shrink_strength * delta
-		else:
-			despawn_target()
+# shrink and grow targets
+func shrink_and_grow_target(sd, shrink, delta):
+	# shrink or grow target according to scale.x and scale.y values and apply slowdown
+	if shrink == false:
+		if sd == false:
+			scale.x += Global.shrink_grow_strength * delta
+			scale.y += Global.shrink_grow_strength * delta
+		elif sd == true:
+			scale.x += Global.shrink_grow_strength * Global.slowdown_strength * delta
+			scale.y += Global.shrink_grow_strength * Global.slowdown_strength * delta
+	elif shrink == true:
+		if sd == false:
+			scale.x -= Global.shrink_grow_strength * delta
+			scale.y -= Global.shrink_grow_strength * delta
+		elif sd == true:
+			scale.x -= Global.shrink_grow_strength * Global.slowdown_strength * delta
+			scale.y -= Global.shrink_grow_strength * Global.slowdown_strength * delta
 	
-	# slow down target when the mouse has entered the target
-	elif sd == true:
-		scale.x -= Global.shrink_strength * Global.slowdown_strength * delta
-		scale.y -= Global.shrink_strength * Global.slowdown_strength * delta
+	if scale.x <= 0.01 and scale.y <= 0.01:
+		despawn_target()
 
 
+func check_scale():
+	if scale.x >= 1 and scale.y >= 1:
+		shrinking = true
+
+
+# slowdown target when the mouse has entered
 func _on_Target_mouse_entered():
 	slow_down = true
 

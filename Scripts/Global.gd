@@ -1,8 +1,8 @@
 extends Node
 
-# variable for how fast the targets start to shrink. 
-# this value is applied to -scale.x and -scale.y of the targets
-var shrink_strength = 0.11
+# variable for how fast the targets start to shrink and grow. 
+# this value is applied to -/+scale.x and -/+scale.y of the targets
+var shrink_grow_strength = 0.25
 
 # strength of the slow down, shrink_strength is multiplied by this value
 var slowdown_strength = 0.7
@@ -33,8 +33,8 @@ func play_sound(sample: String):
 
 # reset all global values
 func reset():
-	shrink_strength = 0.11
-	slowdown_strength = 0.5
+	shrink_grow_strength = 0.25
+	slowdown_strength = 0.7
 	
 	score = 0
 	lives = 3

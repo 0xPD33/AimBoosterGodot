@@ -39,6 +39,9 @@ func add_target():
 	target.position.y = y
 	target.position.x = x
 	
+	target.scale.x = 0.02
+	target.scale.y = 0.02
+	
 	add_child(target)
 	add_to_group("Targets")
 
@@ -48,9 +51,9 @@ func add_target():
 # in a seemingly simple way and helping the player as time progresses
 func _on_TargetSpawner_timeout():
 	if Global.game_over == false:
-		Global.shrink_strength += 0.0007
-		if Global.slowdown_strength >= 0.2:
+		Global.shrink_grow_strength += 0.001
+		if Global.slowdown_strength >= 0.3:
 			Global.slowdown_strength -= 0.005
 		else:
-			Global.slowdown_strength = 0.2
+			Global.slowdown_strength = 0.3
 
