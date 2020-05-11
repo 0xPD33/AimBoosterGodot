@@ -1,6 +1,8 @@
 extends Node
 
-var version_number = 0.1
+var version_number = "0.1.1"
+
+# GAME/
 
 # variable for how fast the targets start to shrink and grow. 
 # this value is applied to -/+scale.x and -/+scale.y of the targets
@@ -22,7 +24,13 @@ var accuracy : float = 100
 
 var game_over : bool = false
 
+# /GAME
+
+# OPTIONS/
+
 var sfx_volume : float = -12.0
+
+# /OPTIONS
 
 
 # had to place this part here. none of the simple implementation methods worked for me.

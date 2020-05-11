@@ -11,3 +11,11 @@ new features/fixes:
 known issues:
 - targets can spawn on top of each other
 - if you hit multiple targets at once accuracy is being calculated wrong
+
+0.1.1:
+new features/fixes:
+- added an options menu (currently only able to change the sound volume)
+
+known issues:
+- targets can spawn on top of each other
+- if you hit multiple targets at once accuracy is being calculated wrong
