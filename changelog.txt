@@ -8,13 +8,15 @@ new features/fixes:
 - the number of maximum targets is no longer a constant and changes as the game progresses
 - moved the randomization of targets positions into it's own function
 
-known issues:
-- targets can spawn on top of each other
-- if you hit multiple targets at once accuracy is being calculated wrong
-
 0.1.1:
 new features/fixes:
 - added an options menu (currently only able to change the sound volume)
+
+0.1.2
+new features/fixes:
+- added hearts for visualizing loss of lives in the center of the game screen
+- you can now toggle the custom cursor in the options menu (default is off)
+- minor fixes
 
 known issues:
 - targets can spawn on top of each other

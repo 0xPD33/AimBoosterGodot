@@ -5,7 +5,8 @@ onready var lives_label = $HUD/HBoxContainer/VBoxContainer/LivesLabel
 onready var accuracy_label = $HUD/HBoxContainer/VBoxContainer/AccLabel
 onready var time_label = $HUD/HBoxContainer/VBoxContainer/TimeLabel
 
-onready var big_time = $HUD/CenterContainer/BigTime
+onready var big_time = $HUD/CenterContainer/VBoxContainer/BigTime
+onready var hearts = $HUD/CenterContainer/VBoxContainer/Hearts
 
 
 # calls these every frame
@@ -59,9 +60,21 @@ func calc_accuracy():
 			pass
 
 
+# checks for lives with a switch/match: 
+# changes the minimum size of the hearts according to remaining lives,
+# the Hearts texture rect in the HUD scene is set to stretch mode tile,
+# which duplicates the texture according to the x and y size
 func check_lives():
-	if Global.lives <= 0:
-		end_game()
+	match(Global.lives):
+		0:
+			hearts.queue_free()
+			end_game()
+		1:
+			hearts.rect_min_size.x = 90
+		2:
+			hearts.rect_min_size.x = 180
+		3:
+			hearts.rect_min_size.x = 270
 
 
 # end the game and change to GameOver scene

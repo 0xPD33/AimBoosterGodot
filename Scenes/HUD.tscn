@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Font/LiberationSans-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://GFX/heart.png" type="Texture" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 150
@@ -33,12 +34,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BigTime" type="Label" parent="CenterContainer"]
-modulate = Color( 0, 0, 0, 0.196078 )
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 4.0
-margin_top = 1.0
 margin_right = 295.0
-margin_bottom = 169.0
+margin_bottom = 262.0
+mouse_filter = 2
+
+[node name="BigTime" type="Label" parent="CenterContainer/VBoxContainer"]
+modulate = Color( 0, 0, 0, 0.196078 )
+margin_right = 291.0
+margin_bottom = 168.0
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 1 )
 text = "0:00"
@@ -47,6 +52,20 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Hearts" type="TextureRect" parent="CenterContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0.313726 )
+margin_left = 10.0
+margin_top = 171.0
+margin_right = 280.0
+margin_bottom = 261.0
+rect_min_size = Vector2( 270, 90 )
+mouse_filter = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_left = 10.0
@@ -75,18 +94,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LivesLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="AccLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
 margin_top = 24.0
 margin_right = 90.0
 margin_bottom = 38.0
-text = "Lives: "
-valign = 1
+text = "Accuracy:"
 
-[node name="AccLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="LivesLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
 margin_top = 48.0
 margin_right = 90.0
 margin_bottom = 62.0
-text = "Accuracy:"
+text = "Lives: "
+valign = 1
 
 [node name="TimeLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
 margin_top = 72.0

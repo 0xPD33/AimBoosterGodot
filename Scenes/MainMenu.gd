@@ -9,18 +9,11 @@ onready var VersionLabel = $Version
 func _ready():
 	FadeRect.visible = true
 	fade_out()
-	set_custom_cursor()
 	set_version_number()
 
 
 func set_version_number():
 	VersionLabel.text = "Version: " + str(Global.version_number)
-
-
-# set mouse cursor to a custom cursor (will be toggleable in an options menu soon)
-func set_custom_cursor():
-	var custom_cursor = load("res://GFX/Crosshair.png")
-	Input.set_custom_mouse_cursor(custom_cursor, 0, Vector2(6, 7))
 
 
 func fade_out():

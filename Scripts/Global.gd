@@ -1,6 +1,6 @@
 extends Node
 
-var version_number = "0.1.1"
+var version_number = "0.1.2"
 
 # GAME/
 
@@ -29,6 +29,7 @@ var game_over : bool = false
 # OPTIONS/
 
 var sfx_volume : float = -12.0
+var custom_cursor_enabled : bool = false
 
 # /OPTIONS
 
