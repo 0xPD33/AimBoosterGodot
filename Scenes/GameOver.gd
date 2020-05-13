@@ -71,7 +71,7 @@ func _on_MenuButton_pressed():
 # resets highscore and best_time
 func _on_ResetButton_pressed():
 	highscore = 0
-	best_time = ""
+	best_time = "0:00"
 	save_highscore()
 	BestValue.set_text("Score: " + str(highscore) + ", Time: " + best_time)
 

@@ -12,11 +12,16 @@ new features/fixes:
 new features/fixes:
 - added an options menu (currently only able to change the sound volume)
 
-0.1.2
+0.1.2:
 new features/fixes:
 - added hearts for visualizing loss of lives in the center of the game screen
 - you can now toggle the custom cursor in the options menu (default is off)
 - minor fixes
+
+0.1.3:
+new features/fixes:
+- created standalone script for the HUD to de-bloat the game script
+- fixed an issue where lives could go negative (forgot a default match statement)
 
 known issues:
 - targets can spawn on top of each other

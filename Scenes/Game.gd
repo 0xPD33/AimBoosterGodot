@@ -1,46 +1,10 @@
 extends Node2D
 
-onready var score_label = $HUD/HBoxContainer/VBoxContainer/ScoreLabel
-onready var lives_label = $HUD/HBoxContainer/VBoxContainer/LivesLabel
-onready var accuracy_label = $HUD/HBoxContainer/VBoxContainer/AccLabel
-onready var time_label = $HUD/HBoxContainer/VBoxContainer/TimeLabel
-
-onready var big_time = $HUD/CenterContainer/VBoxContainer/BigTime
-onready var hearts = $HUD/CenterContainer/VBoxContainer/Hearts
-
 
 # calls these every frame
 func _process(_delta):
-	update_labels()
 	check_lives()
 	count_clicks()
-
-
-# updates labels as the game goes on
-func update_labels():
-	score_label.text = "Score: " + str(Global.score)
-	lives_label.text = "Lives: " + str(Global.lives)
-	accuracy_label.text = "Accuracy: " + str(Global.accuracy) + "%"
-	time_label.text = "Time: " + str(Global.game_time)
-	
-	big_time.text = str(Global.game_time)
-	
-	hide_and_show_labels()
-
-
-# hide or show the labels, depending on game_over value,
-# probably not necessary because the scene get's restarted on change_scene anyway
-func hide_and_show_labels():
-	if Global.game_over == true:
-		score_label.visible = false
-		lives_label.visible = false
-		accuracy_label.visible = false
-		time_label.visible = false
-	else:
-		score_label.visible = true
-		lives_label.visible = true
-		accuracy_label.visible = true
-		time_label.visible = true
 
 
 func count_clicks():
@@ -60,21 +24,16 @@ func calc_accuracy():
 			pass
 
 
-# checks for lives with a switch/match: 
-# changes the minimum size of the hearts according to remaining lives,
-# the Hearts texture rect in the HUD scene is set to stretch mode tile,
-# which duplicates the texture according to the x and y size
+# checks for lives, updates the HUD and ends the game
 func check_lives():
-	match(Global.lives):
-		0:
-			hearts.queue_free()
-			end_game()
-		1:
-			hearts.rect_min_size.x = 90
-		2:
-			hearts.rect_min_size.x = 180
-		3:
-			hearts.rect_min_size.x = 270
+	update_hud()
+	if Global.lives <= 0:
+		end_game()
+
+
+# experimenting with groups: calling update_labels from the HUD script
+func update_hud():
+	get_tree().call_group("HUD", "update_hearts", Global.lives)
 
 
 # end the game and change to GameOver scene
