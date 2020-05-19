@@ -3,7 +3,7 @@
 
 To run the game you just need: "AimBoosterGodot.exe" and "AimBoosterGodot.pck"
 
-Known Issues and Features:
+Take a look at the changelog for ḱnown Issues and new features:
 [Changelog](../master/changelog.txt)
 
 ![Picture](https://i.imgur.com/F3BuGkR.png)
