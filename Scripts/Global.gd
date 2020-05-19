@@ -1,6 +1,6 @@
 extends Node
 
-var version_number = "0.1.2"
+var version_number = "0.1.3"
 
 # GAME/
 

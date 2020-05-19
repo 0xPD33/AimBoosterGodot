@@ -35,7 +35,6 @@ func add_target():
 	target.scale.y = 0.02
 	
 	add_child(target)
-	add_to_group("Targets")
 
 
 # randomizes coordinates of targets
